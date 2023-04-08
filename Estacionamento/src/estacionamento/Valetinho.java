@@ -18,11 +18,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class Valetinho {
 
-	private JFrame frmValetinho;
-	private JPasswordField passwordField;
+	private JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -32,7 +32,7 @@ public class Valetinho {
 			public void run() {
 				try {
 					Valetinho window = new Valetinho();
-					window.frmValetinho.setVisible(true);
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,56 +51,59 @@ public class Valetinho {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmValetinho = new JFrame();
-		frmValetinho.getContentPane().setBackground(Color.WHITE);
-		frmValetinho.setTitle("Valetinho");
-		frmValetinho.setBounds(100, 100, 460, 252);
-		frmValetinho.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frmValetinho.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Senha");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setBounds(0, 51, 148, 37);
-		frmValetinho.getContentPane().add(lblNewLabel);
+		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setTitle("Valetinho");
+		frame.setBounds(100, 100, 460, 252);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		
-		JPasswordField passwordField = new JPasswordField();
-		passwordField.setBackground(UIManager.getColor("Button.background"));
-		passwordField.setBounds(47, 93, 88, 20);
-		frmValetinho.getContentPane().add(passwordField);
-
-		ImageIcon icon = new ImageIcon(Valetinho.class.getResource("/imagens/carro.png"));
+		ImageIcon imagem = new ImageIcon(Valetinho.class.getResource("/imagens/carro.png"));
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(196, 35, 225, 140);
-		frmValetinho.getContentPane().add(lblNewLabel_1);
+		JLabel lblimg = new JLabel("a imagem fica aqui");
+		lblimg.setBounds(196, 35, 225, 140);
+		frame.getContentPane().add(lblimg);
 		
-		icon.setImage(icon.getImage().getScaledInstance(
-				lblNewLabel_1.getWidth(), 
-				lblNewLabel_1.getHeight(), 
+		imagem.setImage(imagem.getImage().getScaledInstance(
+				lblimg.getWidth(), 
+				lblimg.getHeight(), 
 				Image.SCALE_DEFAULT));
 		
-		lblNewLabel_1.setIcon(icon);
+		lblimg.setIcon(imagem);
 		
-		JLabel lblNewLabel_2 = new JLabel("senha incorreta");
-		lblNewLabel_2.setForeground(Color.WHITE);
-		lblNewLabel_2.setBounds(47, 158, 101, 14);
-		frmValetinho.getContentPane().add(lblNewLabel_2);
+		JLabel titulo = new JLabel("Senha");
+		titulo.setHorizontalAlignment(SwingConstants.CENTER);
+		titulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		titulo.setBounds(0, 51, 148, 37);
+		frame.getContentPane().add(titulo);
+		
+		JPasswordField senha = new JPasswordField();
+		senha.setBackground(Color.WHITE);
+		senha.setBounds(47, 93, 88, 20);
+		frame.getContentPane().add(senha);
+
+		JLabel erro = new JLabel("senha incorreta");
+		erro.setForeground(Color.WHITE);
+		erro.setBounds(47, 158, 101, 14);
+		frame.getContentPane().add(erro);
 		
 		JButton btnNewButton = new JButton("entrar");
+		btnNewButton.setBackground(SystemColor.scrollbar);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String texto = new String(passwordField.getPassword());
+				String texto = new String(senha.getPassword());
 				if (texto.equals("ifpb")) {
-					Valetinho2 tela = new Valetinho2();
-					frmValetinho.dispose();
+					ValetinhoMenu menu = new ValetinhoMenu();
+					frame.dispose();
 				} else {
-					lblNewLabel_2.setForeground(Color.RED);
+					erro.setForeground(Color.RED);
 				}
 			}
 		});
 		btnNewButton.setBounds(47, 124, 74, 23);
-		frmValetinho.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(btnNewButton);
 		
 	}
+	
 }
