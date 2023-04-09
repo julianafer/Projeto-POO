@@ -59,7 +59,7 @@ public class ValetinhoSenha {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		ImageIcon imagem = new ImageIcon(Valetinho.class.getResource("/imagens/carro.png"));
+		ImageIcon imagem = new ImageIcon(ValetinhoSenha.class.getResource("/imagens/carro.png"));
 		
 		JLabel lblimg = new JLabel("a imagem fica aqui");
 		lblimg.setBounds(196, 35, 225, 140);
@@ -94,7 +94,7 @@ public class ValetinhoSenha {
 			public void actionPerformed(ActionEvent e) {
 				String texto = new String(senha.getPassword());
 				if (texto.equals("ifpb")) {
-					Valetinho menu = new Valetinho();
+					ValetinhoMenu menu = new ValetinhoMenu();
 					frame.dispose();
 				} else {
 					erro.setForeground(Color.RED);

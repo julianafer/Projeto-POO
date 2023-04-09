@@ -73,8 +73,8 @@ class Estacionamento {
             throw new Exception("Primeira vaga inválida");
         if (vaga2 < 1 || vaga2 > placas.length) 
             throw new Exception("Segunda vaga inválida");
-        // if (vaga1 == vaga2)
-        // 	throw new Exception("Nao se pode transferir na mesma vaga");
+        //if (vaga1 == vaga2)
+        //	throw new Exception("Nao se pode transferir na mesma vaga");
         String auxiliar = placas[vaga1 - 1];
         placas[vaga1 - 1] = placas[vaga2 - 1];
         placas[vaga2 - 1] = auxiliar;
