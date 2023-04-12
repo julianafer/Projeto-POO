@@ -98,7 +98,7 @@ public class ValetinhoConsulta {
 		btnvoltar.setBackground(SystemColor.scrollbar);
 		btnvoltar.setBounds(219, 164, 89, 23);
 		frame.getContentPane().add(btnvoltar);
-		frame.setTitle("Consulta de Placa");
+		frame.setTitle("Valetinho");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}

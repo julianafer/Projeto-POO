@@ -32,6 +32,7 @@ public class ValetinhoMenu {
 				try {
 					ValetinhoMenu window = new ValetinhoMenu();
 					window.frame.setVisible(true);
+					window.frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -62,7 +63,7 @@ public class ValetinhoMenu {
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel titulo = new JLabel("Estacinamento Car-Tchau");
+		JLabel titulo = new JLabel("Estacionamento Car-Tchau");
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
 		titulo.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		titulo.setBounds(38, 36, 367, 74);

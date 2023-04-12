@@ -12,6 +12,11 @@ import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 public class ValetinhoGeral {
 
@@ -50,11 +55,12 @@ public class ValetinhoGeral {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
-
+		
 		JLabel titulo = new JLabel("Listagem geral de vagas");
+				
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
 		titulo.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		titulo.setBounds(61, 32, 298, 31);
+		titulo.setBounds(61, 28, 298, 31);
 		frame.getContentPane().add(titulo);
 
 		JButton btnvoltar = new JButton("Voltar");
@@ -64,17 +70,44 @@ public class ValetinhoGeral {
 			}
 		});
 		btnvoltar.setBackground(SystemColor.scrollbar);
-		btnvoltar.setBounds(167, 216, 89, 23);
+		btnvoltar.setBounds(230, 216, 89, 23);
 		frame.getContentPane().add(btnvoltar);
-
-		JLabel lista = new JLabel("a lista fica aqui");
-		lista.setHorizontalAlignment(SwingConstants.CENTER);
-		lista.setBounds(71, 74, 288, 129);
-		frame.getContentPane().add(lista);
 		
-		frame.setTitle("Listagem Geral");
+		JTextArea textAreaImpar = new JTextArea();
+		textAreaImpar.setBounds(92, 92, 122, 83);
+		frame.getContentPane().add(textAreaImpar);
+		
+		JTextArea textAreaPar = new JTextArea();
+		textAreaPar.setBounds(234, 92, 135, 83);
+		frame.getContentPane().add(textAreaPar);
+		
+		JButton btListar = new JButton("Listar");
+		btListar.setBackground(SystemColor.scrollbar);
+		btListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int i = 0;
+				String[] listaGeral = estacionamento.listarGeral();
+				for(String word : listaGeral) {
+					i++;
+					if (i % 2 == 0) {
+						textAreaPar.append("Vaga " + i + ": "+ word + "\n");
+					} else {
+						textAreaImpar.append("Vaga " + i + ": "+ word + "\n");
+					}
+				}
+			}
+		});
+		btListar.setBounds(107, 216, 89, 23);
+		frame.getContentPane().add(btListar);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(49, 70, 331, 127);
+		frame.getContentPane().add(panel);
+		
+		frame.setTitle("Valetinho");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
-
 }

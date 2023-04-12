@@ -33,6 +33,7 @@ public class ValetinhoSenha {
 				try {
 					ValetinhoSenha window = new ValetinhoSenha();
 					window.frame.setVisible(true);
+					window.frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

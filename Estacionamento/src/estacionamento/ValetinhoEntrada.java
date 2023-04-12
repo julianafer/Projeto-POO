@@ -48,7 +48,7 @@ public class ValetinhoEntrada {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setTitle("Entrada");
+		frame.setTitle("Valetinho");
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 

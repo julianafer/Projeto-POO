@@ -51,7 +51,7 @@ public class ValetinhoSaida {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.setTitle("Saída");
+		frame.setTitle("Valetinho");
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 		frame.setSize(new Dimension(450, 300));
