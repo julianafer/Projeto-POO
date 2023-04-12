@@ -9,12 +9,8 @@ import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.SwingConstants;
-import javax.swing.JTextField;
 import java.awt.Color;
-import javax.swing.UIManager;
 import javax.swing.JPasswordField;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

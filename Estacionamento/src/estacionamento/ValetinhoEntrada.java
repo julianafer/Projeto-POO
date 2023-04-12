@@ -2,7 +2,6 @@ package estacionamento;
 
 import javax.swing.JFrame;
 import java.awt.Color;
-import java.awt.EventQueue;
 
 import javax.swing.JLabel;
 import java.awt.Font;
