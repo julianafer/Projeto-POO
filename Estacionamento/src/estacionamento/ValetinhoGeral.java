@@ -76,6 +76,9 @@ public class ValetinhoGeral {
 		textAreaPar.setBounds(234, 92, 135, 83);
 		frame.getContentPane().add(textAreaPar);
 		
+		textAreaImpar.setEditable(false);
+		textAreaPar.setEditable(false);
+		
 		JButton btListar = new JButton("Listar");
 		btListar.setBackground(SystemColor.scrollbar);
 		btListar.addActionListener(new ActionListener() {
