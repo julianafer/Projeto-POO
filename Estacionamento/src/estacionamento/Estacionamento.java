@@ -18,6 +18,7 @@ class Estacionamento {
         for (int i = 0; i < n; i++) {
             placas[i] = "Livre";
         }
+        lerDados();
     }
 
     public void entrar(String placa, int vaga) throws Exception {
@@ -37,6 +38,7 @@ class Estacionamento {
         } catch (Exception e) {
             System.out.println("Erro ao escrever no arquivo historico.csv");
         }
+        gravarDados();
     }
 
     public void sair(int vaga) throws Exception {
@@ -57,6 +59,7 @@ class Estacionamento {
         } catch (Exception e) {
             System.out.println("Erro ao escrever no arquivo historico.csv");
         }
+        gravarDados();
     }
 
     public int consultarPlaca(String placa) {
@@ -78,6 +81,7 @@ class Estacionamento {
         String auxiliar = placas[vaga1 - 1];
         placas[vaga1 - 1] = placas[vaga2 - 1];
         placas[vaga2 - 1] = auxiliar;
+        gravarDados();
     }
 
     public String[] listarGeral() {
@@ -123,7 +127,12 @@ class Estacionamento {
     		String[] partes = linha.split(";");
     		int vaga = Integer.parseInt(partes[0]);
     		String placa = partes[1];
-    		System.out.println("Vaga " + vaga + " - " + placa);
+    		try {
+    			entrar(placa, vaga);
+    		}
+    		catch (Exception e) {
+    			System.out.println(e.getMessage());
+    		}
     	}
     	arquivo.close();
     }
